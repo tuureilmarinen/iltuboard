@@ -5,14 +5,15 @@
 	<li><a href="#">This is it</a></li>
 </ul>
 <ul class="nav nav-sidebar">
-	<li><a href="">Nav item</a></li>
-	<li><a href="">Nav item again</a></li>
-	<li><a href="">One more nav</a></li>
-	<li><a href="">Another nav item</a></li>
-	<li><a href="">More navigation</a></li>
+	<li><a href="/boards">Boards</a></li>
+	<li><a href="/posts">Posts</a></li>
+	<li><a href="/topics">Threads</a></li>
 </ul>
+<% if boards %>
 <ul class="nav nav-sidebar">
-	<li><a href="">Nav item again</a></li>
-	<li><a href="">One more nav</a></li>
-	<li><a href="">Another nav item</a></li>
+	<li class="nav-divider"></li>
+	<% boards.each do |b| %>
+	<li><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
+	<% end %>
 </ul>
+<% end %>
