@@ -5084,3 +5084,5 @@ ActionView::Template::Error (TypeError: Object doesn't support this property or 
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2309.6ms)
+  [1m[36mBoard Load (3.5ms)[0m  [1mSELECT "boards".* FROM "boards"[0m
+  [1m[35mBoard Load (0.0ms)[0m  SELECT "boards".* FROM "boards"

@@ -12,7 +12,7 @@
 	<li><a href="">More navigation</a></li>
 </ul>
 <ul class="nav nav-sidebar">
-	<% Board.each do |b| %>
+	<% Board.all.each do |b| %>
 	<li><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
 	<% end %>
 	<li><a href="">One more nav</a></li>
