@@ -5021,3 +5021,4 @@ ActionView::Template::Error (TypeError: Object doesn't support this property or 
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
   Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2307.7ms)
+  [1m[36mBoard Load (0.4ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."url" = ? LIMIT 1[0m  [["url", "b"]]
