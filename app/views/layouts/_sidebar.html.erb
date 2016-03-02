@@ -11,7 +11,7 @@
 </ul>
 <% if boards %>
 <ul class="nav nav-sidebar">
-	<li class="nav-separator"></li>
+	<li class="nav-divider"></li>
 	<% boards.each do |b| %>
 	<li><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
 	<% end %>
