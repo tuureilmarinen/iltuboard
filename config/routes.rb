@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :topics
+  resources :boards
   root to: 'hello#index'
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

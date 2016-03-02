@@ -4793,3 +4793,200 @@ Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb
 
 
 Started GET "/assets/application.self-120f3cf1cb67bea53c4a2a57336b34ca04b04b55a55c38cf76ce20a147e5eff9.js?body=1" for ::1 at 2016-03-02 17:48:40 +0200
+
+
+Started GET "/" for ::1 at 2016-03-02 18:09:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HelloController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered hello/index.html.erb within layouts/application (24.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_navigation.html.erb (15.0ms)
+  Rendered layouts/_sidebar.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 8663ms (Views: 8630.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/framework_and_overrides.self-178bcd1d90f4d194db722b4a29c26a29d925ba5d7f1a7017c7ae1df0c89016d2.css?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-e6330f082db3cc6476f32deb6d8ac23b2661a9118e5247dad9021bafb9be7564.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/application.self-27a424817124a538a1bd8a9038aea5396ae2ca72ec5dbb40fa23fc96e0859767.css?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-05b660026c9cc48ed9a736c17cf016c88fb5d9b039d39112ca5e2a5758c1704b.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/button.self-08ab85a1ab1fd1ca6c1801262e756fbb4df937261850c5d10c8bb8f109d30ba3.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-2b35b2f587541efae0276cfbae37f02da45a910c57ca8338ce3f4e1e897fa01e.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-b9dda8079e1384b270b442fdddfe30a4ccfa71f9531e821bbad10da44cc8e677.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-6cbc06f31a68783970dc715fcb0b7daa4730fd0c3345c314b9544f301458ac3e.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-1551f74624307ddd7471d08e644f686ecfd5420cd8862e1b816fd184dc6fc3b4.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-4a1f74ae1eb650ba5604877b0dc8fece7e2dc7ff2c15126f50d8cc09d5c59542.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-0d847f2b4a4db9d75c0f094d571b56370ae3d98876d5417e1d175353377c0123.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-e85eb6cc52baa4c73c1e86b83c7c3e9dda5c7d22d43274aa94af4a3c205b6c41.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-ff71206d3394ca08f525a6df3b80bed71fd1574eb97314b90890f783931d4283.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-cc7cd7c5956019e69d25658178e5709bdee8a13cf38e49ab46c83b50f86e49e1.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/assets/application.self-120f3cf1cb67bea53c4a2a57336b34ca04b04b55a55c38cf76ce20a147e5eff9.js?body=1" for ::1 at 2016-03-02 18:09:43 +0200
+
+
+Started GET "/auth/google" for ::1 at 2016-03-02 18:09:51 +0200
+
+
+Started GET "/auth/google" for ::1 at 2016-03-02 18:09:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBoards (20160302161406)
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "boards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar, "name" varchar, "description" varchar, "nsfw" boolean, "visible" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160302161406"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTopics (20160302162233)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "board_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160302162233"]]
+  [1m[36m (69.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePosts (20160302164137)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer NOT NULL, "content" text NOT NULL, "user_id" integer, "show_name" integer NOT NULL, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "aposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer NOT NULL, "content" text NOT NULL, "user_id" integer, "show_name" integer NOT NULL, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "posts"[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "posts"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer NOT NULL, "content" text NOT NULL, "user_id" integer, "show_name" integer DEFAULT 0 NOT NULL, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "aposts"
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "aposts"[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160302164137"]]
+  [1m[36m (73.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for ::1 at 2016-03-02 19:02:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HelloController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered hello/index.html.erb within layouts/application (23.1ms)
+Completed 500 Internal Server Error in 1658ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+    4:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    5:   <title><%= content_for?(:title) ? yield(:title) : "Iltuboard" %></title>
+    6:   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Iltuboard" %>">
+    7:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    8:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    9:   <%= csrf_meta_tags %>
+   10: </head>
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___568914047_45937776'
+
+
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1098.3ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (968.1ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2264.3ms)
+
+
+Started POST "/__web_console/repl_sessions/b90a79b27c16e1f7aea708a57e8eb47b/trace" for ::1 at 2016-03-02 19:03:45 +0200
+
+
+Started GET "/" for ::1 at 2016-03-02 19:03:47 +0200
+Processing by HelloController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered hello/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 397ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+    4:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    5:   <title><%= content_for?(:title) ? yield(:title) : "Iltuboard" %></title>
+    6:   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Iltuboard" %>">
+    7:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    8:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    9:   <%= csrf_meta_tags %>
+   10: </head>
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___568914047_45937776'
+
+
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1030.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (955.2ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2221.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-02 19:04:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HelloController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered hello/index.html.erb within layouts/application (19.0ms)
+Completed 500 Internal Server Error in 995ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+    4:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    5:   <title><%= content_for?(:title) ? yield(:title) : "Iltuboard" %></title>
+    6:   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Iltuboard" %>">
+    7:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    8:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    9:   <%= csrf_meta_tags %>
+   10: </head>
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__381059509_46814400'
+
+
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1081.4ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (974.9ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered c:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2265.0ms)

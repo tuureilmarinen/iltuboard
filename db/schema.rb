@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302153919) do
+ActiveRecord::Schema.define(version: 20160302164137) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "url"
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "nsfw"
+    t.boolean  "visible"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "thread_id",              null: false
+    t.text     "content",                null: false
+    t.integer  "user_id"
+    t.integer  "show_name",  default: 0, null: false
+    t.string   "author"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "board_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               null: false
