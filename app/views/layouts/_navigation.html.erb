@@ -14,6 +14,15 @@
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li><%= link_to current_user.name, "/users/"+current_user.id.to_s %></li>
+        <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+        <% else %>
+        <li><p class="navbar-text">Authenticate with:</p></li>
+        <li><%= link_to 'Google', "/auth/google" %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>
