@@ -10,5 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def boards
+  	@boards ||= Board.all
+  end
+  helper_method :boards
 end
 
