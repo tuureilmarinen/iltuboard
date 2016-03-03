@@ -9,11 +9,15 @@
 	<li><a href="/posts">Posts</a></li>
 	<li><a href="/topics">Threads</a></li>
 </ul>
-<% if boards %>
+<% unless visible_boards.empty? %>
 <ul class="nav nav-sidebar">
 	<li class="nav-divider"></li>
-	<% boards.each do |b| %>
+	<% visible_boards.each do |b| %>
+	<% unless b.nsfw? %>
 	<li><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
+	<% else %>
+	<li><a href="/<%= b.url %>/">/<%= b.url %>/&nbsp;<%= b.name %>&nbsp;<span class="label label-danger">nsfw</span></a></li>
+	<% end %>
 	<% end %>
 </ul>
 <% end %>

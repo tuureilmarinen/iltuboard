@@ -25,8 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :show_name %><br>
-    <%= f.number_field :show_name %>
-  </div>
+    <%= f.select :show_name, Post.show_names.keys, include_blank: "----" %>  </div>
   <div class="field">
     <%= f.label :author %><br>
     <%= f.text_field :author %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302164137) do
+ActiveRecord::Schema.define(version: 20160303122906) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "url"

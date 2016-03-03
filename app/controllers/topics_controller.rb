@@ -10,6 +10,14 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    @topic=Topic.find(params[:id]) or raise ActiveRecord::RecordNotFound, "Record not found."
+    unless params[:url].nil? and not @topic.nil?
+      if @topic.board.url==params[:url]
+        render 'show'
+      else
+        raise ActiveRecord::RecordNotFound, "Record not found."
+      end
+    end
   end
 
   # GET /topics/new
@@ -69,6 +77,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :board_id)
+      params.require(:topic).permit(:name, :board_id, :url)
     end
 end
