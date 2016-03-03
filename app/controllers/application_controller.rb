@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def boards
-  	@boards ||= Board.all
+  	@boards ||= Board.where(visible:true)
   end
   helper_method :boards
 end

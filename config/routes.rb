@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'hello#index'
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get  '/:url', to: 'boards#show_by_url'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

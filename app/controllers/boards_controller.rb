@@ -12,6 +12,11 @@ class BoardsController < ApplicationController
   def show
   end
 
+  def show_by_url
+    @board=Board.find_by_url(params[:url]) or raise ActiveRecord::RecordNotFound, "Record not found."
+    render 'show'
+  end
+
   # GET /boards/new
   def new
     @board = Board.new
@@ -71,4 +76,4 @@ class BoardsController < ApplicationController
     def board_params
       params.require(:board).permit(:url, :name, :description, :nsfw, :visible)
     end
-end
+  end
