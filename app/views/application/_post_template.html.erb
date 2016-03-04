@@ -23,4 +23,9 @@
 	<div class="panel-body">
 		<%= @p.content %>
 	</div>
+	<% if @p.banned? %>
+	<div class="panel-heading" style="color:red;">
+	<strong>Banned</strong> until <%= @p.ban.ends_at.in_time_zone 'Helsinki' %> due <%= @p.ban.reason %>
+	</div>
+	<% end %>
 </div>

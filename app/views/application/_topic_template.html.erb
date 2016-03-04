@@ -1,7 +1,7 @@
 <% @op=@t.posts.first %>
 <div class="panel panel-default" id="t<%= @t.id %>">
 	<div class="panel-heading">
-		<strong style="font-size: 1.5em;"><%= link_to @t.board.url+"/"+@t.name, "/"+@t.board.url+"/"+@t.id.to_s %></strong>
+		<span style="font-size: 1.5em"><%= @t.board.url %>&nbsp;&frasl;&nbsp;</span><strong style="font-size: 1.5em;"><%= link_to @t.name, "/"+@t.board.url+"/"+@t.id.to_s %></strong>
 		<%= @t.id %>&frasl;<a href="<%= @t.id.to_s+"/#"+@op.id.to_s %>">&#35;<%= @op.id %></a>
 		<% if @op.nick? and not @op.author.empty? %>
 			<span class="text-success"><%= @op.author %></span>
@@ -21,11 +21,14 @@
 		<% unless @op.created_at==@op.updated_at %>
 		(last edited: <%= @op.updated_at.in_time_zone 'Helsinki' %>)
 		<% end %>
+		<%= link_to "",@t.board.url+"/"+@t.id.to_s+"/report", class:"glyphicon glyphicon-flag btn-danger btn-xs", style:"font-color:white;" %>
 	</div>
 	<div class="panel-body">
 		<%= @op.content %>
 		<hr/>
 		<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>
+		<br/>
+		<br/>
 		<% posts=@t.posts.last(3).to_a %>
 		<% posts.delete(posts.first) %>
 		<% posts.each do |p| %>

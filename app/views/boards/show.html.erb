@@ -1,32 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1>&frasl;&nbsp;<%= @board.url %>&nbsp;&frasl;&nbsp;<%= @board.name %></h1>
 
-<p>
-  <strong>Url:</strong>
-  <%= @board.url %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @board.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @board.description %>
-</p>
-
-<p>
-  <strong>Nsfw:</strong>
-  <%= @board.nsfw %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @board.visible %>
-</p>
-<% @board.topics.each do |t| %>
-<% @t=t %>
-<%= render 'application/topic_template' %>
+<div style="font-size: 1.2em;padding-bottom: 1em;">
+<% if @board.nsfw? %>
+&nbsp;<span class="label label-danger">nsfw</span>
 <% end %>
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+<% unless @board.visible? %>
+&nbsp;<span class="label label-warning">hidden</span>
+<% end %>&nbsp;
+<%= @board.description %></div>
+<% @board.topics.each do |t| %>
+  <% @t=t %>
+  <%= render 'application/topic_template' %>
+<% end %>

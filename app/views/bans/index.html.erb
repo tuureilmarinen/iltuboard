@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Reason</th>
+      <th>Post</th>
+      <th>Ends at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bans.each do |ban| %>
+      <tr>
+        <td><%= ban.user_id %></td>
+        <td><%= ban.reason %></td>
+        <td><%= ban.post_id %></td>
+        <td><%= ban.ends_at %></td>
+        <td><%= link_to 'Show', ban %></td>
+        <td><%= link_to 'Edit', edit_ban_path(ban) %></td>
+        <td><%= link_to 'Destroy', ban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ban', new_ban_path %>

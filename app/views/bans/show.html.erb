@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ban.user_id %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @ban.reason %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @ban.post_id %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= @ban.ends_at %>
+</p>
+
+<%= link_to 'Edit', edit_ban_path(@ban) %> |
+<%= link_to 'Back', bans_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bans
   resources :posts
   resources :topics
   resources :boards
