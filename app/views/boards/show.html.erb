@@ -24,6 +24,9 @@
   <strong>Visible:</strong>
   <%= @board.visible %>
 </p>
-
+<% @board.topics.each do |t| %>
+<% @t=t %>
+<%= render 'application/topic_template' %>
+<% end %>
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>

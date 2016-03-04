@@ -10,5 +10,10 @@
   <%= @topic.board_id %>
 </p>
 
+<% @topic.posts.each do |i| %>
+	<% @p = i %>
+  <%= render 'application/post_template' %>
+<% end %>
+
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

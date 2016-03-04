@@ -1,0 +1,36 @@
+<% @op=@t.posts.first %>
+<div class="panel panel-default" id="t<%= @t.id %>">
+	<div class="panel-heading">
+		<strong style="font-size: 1.5em;"><%= link_to @t.board.url+"/"+@t.name, "/"+@t.board.url+"/"+@t.id.to_s %></strong>
+		<%= @t.id %>&frasl;<a href="<%= @t.id.to_s+"/#"+@op.id.to_s %>">&#35;<%= @op.id %></a>
+		<% if @op.nick? and not @op.author.empty? %>
+			<span class="text-success"><%= @op.author %></span>
+		<% elsif @op.registered? %>
+			<span class="text-primary"><%= @op.author %></span>
+		<% elsif @op.real_name? and not @op.user.nil? %>
+			<span class="text-danger"><a href="<%= @op.user.url %>"><%= @op.user.name %></a></span>
+			<% if @op.user.admin? %>
+				&nbsp;<span class="label label-danger">admin</span>
+			<% elsif @op.user.moderator? %>
+				&nbsp;<span class="label label-warning">mod</span>
+			<% end %>
+		<% else #anonymoyus %>
+			<span class="text-success">anonymous</span>
+		<% end %>
+		<%= @op.created_at.in_time_zone 'Helsinki' %>
+		<% unless @op.created_at==@op.updated_at %>
+		(last edited: <%= @op.updated_at.in_time_zone 'Helsinki' %>)
+		<% end %>
+	</div>
+	<div class="panel-body">
+		<%= @op.content %>
+		<hr/>
+		<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>
+		<% posts=@t.posts.last(3).to_a %>
+		<% posts.delete(posts.first) %>
+		<% posts.each do |p| %>
+			<% @p= p %>
+			<%= render 'application/post_template' %>
+		<% end %>
+	</div>
+</div>

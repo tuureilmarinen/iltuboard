@@ -1,0 +1,26 @@
+<div class="panel panel-default" id="<%= @p.id %>">
+	<div class="panel-heading">
+		<a href="#<%= @p.id %>">&#35;<%= @p.id %></a>
+		<% if @p.nick? and not @p.author.empty? %>
+			<span class="text-success"><%= @p.author %></span>
+		<% elsif @p.registered? %>
+			<span class="text-primary"><%= @p.author %></span>
+		<% elsif @p.real_name? and not @p.user.nil? %>
+			<span class="text-danger"><a href="<%= @p.user.url %>"><%= @p.user.name %></a></span>
+			<% if @p.user.admin? %>
+				&nbsp;<span class="label label-danger">admin</span>
+			<% elsif @p.user.moderator? %>
+				&nbsp;<span class="label label-warning">mod</span>
+			<% end %>
+		<% else #anonymoyus %>
+			<span class="text-success">anonymous</span>
+		<% end %>
+		<%= @p.created_at.in_time_zone 'Helsinki' %>
+		<% unless @p.created_at==@p.updated_at %>
+		(last edited: <%= @p.updated_at.in_time_zone 'Helsinki' %>)
+		<% end %>
+	</div>
+	<div class="panel-body">
+		<%= @p.content %>
+	</div>
+</div>
