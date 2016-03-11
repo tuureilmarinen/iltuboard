@@ -33,13 +33,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+ 	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+ 	gem 'byebug'
+ 	gem 'sqlite3'
+ 	gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+	# Access an IRB console on exception pages or by using <%= console %> in views
+	gem 'web-console', '~> 2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -50,13 +52,16 @@ gem "omniauth-google-oauth2"
 
 gem 'bootstrap-sass'
 group :development do
-  gem 'rails_layout'
-end
-group :development, :test do
-  gem 'sqlite3'
+	gem 'rails_layout'
 end
 
-group :production do
-   gem 'pg'
-   gem 'rails_12factor'
+group :test do
+	gem 'simplecov', require: false
 end
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+# carrierwave gem for uploading of files
+gem 'carrierwave'

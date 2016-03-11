@@ -1,4 +1,5 @@
-<%= form_for(@post) do |f| %>
+<%# form_for(@post) do |f| %>
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -29,6 +30,10 @@
   <div class="field">
     <%= f.label :author %><br>
     <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= p.file_field :file, :multiple => true, name: "post_attachments[file][]" %>
   </div>
   <div class="actions">
     <%= f.submit %>
