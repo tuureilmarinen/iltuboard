@@ -1,3 +1,4 @@
 setenv.sh
 log/development.log
 tmp/
+public/uploads/
