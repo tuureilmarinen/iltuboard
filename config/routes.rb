@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :post_attachments
   resources :bans
   resources :posts
   resources :topics

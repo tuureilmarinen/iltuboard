@@ -32,8 +32,9 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :author %><br>
-    <%= p.file_field :file, :multiple => true, name: "post_attachments[file][]" %>
+    <%= f.label :file %><br>
+    <%# f.file_field :file, :multiple => true, name: "post_attachments[file][]" %>
+    <%= f.file_field :attachment %>
   </div>
   <div class="actions">
     <%= f.submit %>

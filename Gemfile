@@ -65,3 +65,4 @@ end
 
 # carrierwave gem for uploading of files
 gem 'carrierwave'
+gem 'mini_magick'

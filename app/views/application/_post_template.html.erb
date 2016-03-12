@@ -1,4 +1,4 @@
-<div class="panel panel-default" id="<%= @p.id %>">
+<div class="panel panel-default post" id="<%= @p.id %>">
 	<div class="panel-heading">
 		<a href="#<%= @p.id %>">&#35;<%= @p.id %></a>
 		<% if @p.nick? and not @p.author.empty? %>
@@ -21,6 +21,14 @@
 		<% end %>
 	</div>
 	<div class="panel-body">
+		<% if @p.attachment? %>
+		<div class="post_attachment">
+			<%= link_to @p.attachment.url do %>
+  				<%# image_tag @p.attachment.url :thumb %>
+  				<img src="<%= @p.attachment.thumb %>"></img>
+			<% end %>
+		</div>
+		<% end %>
 		<%= @p.content %>
 	</div>
 	<% if @p.banned? %>

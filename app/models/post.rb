@@ -4,8 +4,9 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	has_one :ban
 	delegate :board, to: :topic
-	has_many :post_attachments
-	accepts_nested_attributes_for :post_attachments
+	#has_many :post_attachments
+	#accepts_nested_attributes_for :post_attachments
+	mount_uploader :attachment, AttachmentUploader
 	def banned?
 		not self.ban.nil?
 	end
