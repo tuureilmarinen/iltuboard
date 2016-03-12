@@ -13,6 +13,8 @@ class TopicsController < ApplicationController
     @topic=Topic.find(params[:id]) or raise ActiveRecord::RecordNotFound, "Record not found."
     unless params[:url].nil? and not @topic.nil?
       if @topic.board.url==params[:url]
+        @new_post=Post.new
+        @new_post.topic=@topic
         render 'show'
       else
         raise ActiveRecord::RecordNotFound, "Record not found."

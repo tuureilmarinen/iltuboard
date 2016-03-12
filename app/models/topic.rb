@@ -6,4 +6,7 @@ class Topic < ActiveRecord::Base
 		p<<self.posts.last(n)
 		p
 	end
+	def url
+		"/"+self.board.url+"/"+self.id.to_s
+	end
 end
