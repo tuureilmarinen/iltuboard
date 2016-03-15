@@ -13,7 +13,7 @@
 <hr/>
 <%= @board.topics.size-1 %> threads
 <hr/>
-<% @board.topics.each do |t| %>
+<% @board.find_topics_sorted.each do |t| %>
   <% @t=t %>
   <% if @t.op.valid? %>
   	<%= render 'application/topic_template' %>
