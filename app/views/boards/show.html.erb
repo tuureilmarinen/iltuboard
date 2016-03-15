@@ -1,11 +1,11 @@
-<h1>&frasl;&nbsp;<%= @board.url %>&nbsp;&frasl;&nbsp;<%= @board.name %></h1>
+<h1>&frasl;&nbsp;<%= @board.url %>&nbsp;&frasl; <%= @board.name %></h1>
 
 <div style="font-size: 1.2em;padding-bottom: 1em;">
 <% if @board.nsfw? %>
-&nbsp;<span class="label label-danger">nsfw</span>
+ <span class="label label-danger">nsfw</span>
 <% end %>
 <% unless @board.visible? %>
-&nbsp;<span class="label label-warning">hidden</span>
+ <span class="label label-warning">hidden</span>
 <% end %>&nbsp;
 <%= @board.description %></div>
 <hr/>
