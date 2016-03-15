@@ -8,7 +8,10 @@
 &nbsp;<span class="label label-warning">hidden</span>
 <% end %>&nbsp;
 <%= @board.description %></div>
+<hr/>
+<%= render 'application/new_topic_template' %>
+<hr/>
 <% @board.topics.each do |t| %>
   <% @t=t %>
-  <%= render 'application/topic_template' %>
+  <% render 'application/topic_template' %>
 <% end %>

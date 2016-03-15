@@ -14,6 +14,12 @@ class BoardsController < ApplicationController
 
   def show_by_url
     @board=Board.find_by_url(params[:url]) or raise ActiveRecord::RecordNotFound, "Record not found."
+    @new_topic= Topic.new
+    @new_topic.board=@board
+    @new_topic.posts.build
+    @new_post=Post.new
+    @new_post.topic=@new_topic
+    #byebug
     render 'show'
   end
 

@@ -2,7 +2,10 @@
 <div class="panel panel-default" id="t<%= @t.id %>">
 	<div class="panel-heading">
 		<span style="font-size: 1.5em"><%= @t.board.url %>&nbsp;&frasl;&nbsp;</span><strong style="font-size: 1.5em;"><%= link_to @t.name, "/"+@t.board.url+"/"+@t.id.to_s %></strong>
-		<%= @t.id %>&frasl;<a href="<%= @t.id.to_s+"/#"+@op.id.to_s %>">&#35;<%= @op.id %></a>
+		<%# byebug %>
+		<%= @t.id %>&frasl;
+		<a href="<%= @op.url %>">&#35;
+		<%= @op.id %></a>
 		<% if @op.nick? and not @op.author.empty? %>
 			<span class="text-success"><%= @op.author %></span>
 		<% elsif @op.registered? %>

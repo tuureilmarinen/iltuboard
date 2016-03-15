@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics
@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic=Topic.find(params[:id]) or raise ActiveRecord::RecordNotFound, "Record not found."
+    @topic.posts.build
     unless params[:url].nil? and not @topic.nil?
       if @topic.board.url==params[:url]
         @new_post=Post.new
@@ -34,18 +35,33 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
-
+    <<-COMM
     respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
-      else
-        format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.save
+      format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
+      format.json { render :show, status: :created, location: @topic }
+    else
+      format.html { render :new }
+      format.json { render json: @topic.errors, status: :unprocessable_entity }
     end
   end
+  COMM
+
+  @topic = Topic.new(topic_params)
+  #@post = Post.new(post_params)
+  #@post = @topic.posts.new(post_params)
+  @post.user = current_user
+  respond_to do |format|
+    if @post.save
+      format.html { redirect_to @post.url, notice: 'Thread was successfully created.' }
+      #format.html { redirect_to @post, notice: 'Post was successfully created.' }
+      format.json { render :show, status: :created, location: @post }
+    else
+      format.html { render :new }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
+    end
+  end
+end
 
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
@@ -81,4 +97,7 @@ class TopicsController < ApplicationController
     def topic_params
       params.require(:topic).permit(:name, :board_id, :url)
     end
-end
+    def post_params
+      params.require(:post).permit(:topic_id, :content, :user_id, :show_name, :author, :attachment)
+    end
+  end

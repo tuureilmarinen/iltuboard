@@ -1,0 +1,40 @@
+<%= form_for(@new_topic, :html => { :multipart => true }) do |f| %>
+  <% if @new_topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+      <% @new_topic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.hidden_field :board_id, value:@board.id %>
+  <%# fields_for :posts do |field| %>
+  <%= f.fields_for :posts do |field| %>
+    <div class="field">
+      <%= field.label :content %><br>
+      <%= field.text_area :content %>
+    </div>
+    <div class="field">
+      <%= field.label :show_name %><br>
+      <%= field.select :show_name, Post.show_names.keys %>  </div>
+    <div class="field">
+      <%= field.label :author %><br>
+      <%= field.text_field :author %>
+    </div>
+    <div class="field">
+      <%= field.label :file %><br>
+      <%= field.file_field :attachment %>
+     </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
