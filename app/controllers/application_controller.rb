@@ -12,13 +12,25 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def visible_boards
-  	@visible_boards = Board.where(visible:true)
+    if admin?
+      @visible_boards = Board.all
+    else
+      @visible_boards = Board.where(visible:true)
+    end
   end
   helper_method :visible_boards
-  
+
   def current_url(overwrite={})
     url_for :only_path => false, :params => params.merge(overwrite)
   end
   helper_method :current_url
-end
 
+  def admin?
+    unless current_user.nil?
+      current_user.admin?
+    else
+      false
+    end
+  end
+  helper_method :admin?
+end

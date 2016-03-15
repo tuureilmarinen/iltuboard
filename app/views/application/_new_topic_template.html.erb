@@ -1,41 +1,47 @@
 <h3>New topic</h3>
 <%= form_for(@new_topic, :html => { :multipart => true }) do |f| %>
   <% if @new_topic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@new_topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @new_topic.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
   <%= f.hidden_field :board_id, value:@board.id %>
-  <%# fields_for :posts do |field| %>
+  <div class="form-group row">
+    <%= f.label :name, "subject", class:"col-sm-2 form-control-label"%>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+  </div>
   <%= f.fields_for :posts do |field| %>
-    <div class="field">
-      <%= field.label :content %><br>
-      <%= field.text_area :content %>
+    <div class="form-group row">
+      <%= field.label :content, "content", class:"col-sm-2 form-control-label"%>
+      <div class="col-sm-10">
+        <%= field.text_area :content,class:"form-control" %>
+      </div>
     </div>
-    <div class="field">
-      <%= field.label :show_name %><br>
-      <%= field.select :show_name, Post.show_names.keys %>  </div>
-    <div class="field">
-      <%= field.label :author %><br>
-      <%= field.text_field :author %>
+    <div class="form-group row">
+      <%= field.label :author, "nick", class:"col-sm-2 form-control-label"%>
+      <div class="col-sm-10">
+        <div class="col-sm-3" style="float:left;padding-left:0;">
+          <%= field.select :show_name, Post.show_names.keys,{},{class:"form-control"} %>
+        </div>
+        <div class="col-sm-9" style="float:right;padding-right:0;">
+          <%= field.text_field :author,class:"form-control",placeholder:"nick" %>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= field.label :file %><br>
+    <div class="form-group row">
       <%= field.file_field :attachment %>
-     </div>
+    </div>
   <% end %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group row">
+    <%= f.submit class:"btn btn-sm btn-primary"%>
   </div>
 <% end %>

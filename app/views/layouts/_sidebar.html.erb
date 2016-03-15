@@ -5,18 +5,25 @@
 	<li><a href="#">This is it</a></li>
 </ul>
 <ul class="nav nav-sidebar">
-	<li><a href="/boards">Boards</a></li>
+	<li><a href="/topics">Topics</a></li>
 	<li><a href="/posts">Posts</a></li>
-	<li><a href="/topics">Threads</a></li>
+	<% if admin? %>
+	<li><a href="/boards">Threads</a></li>
+	<% end %>
 </ul>
 <% unless visible_boards.empty? %>
-<ul class="nav nav-sidebar">
+<% active_board=(not @board.nil?) ? @board.id : nil -%>
+<ul class="nav nav-pills nav-stacked">
 	<li class="nav-divider"></li>
 	<% visible_boards.each do |b| %>
+	<% classes=""
+		if b.id==active_board
+			classes=classes+"active"
+		end %>
 	<% unless b.nsfw? %>
-	<li><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
+	<li class="<%= classes %>"><%= link_to "/"+b.url+"/ "+b.name, "/"+b.url+"/" %></li>
 	<% else %>
-	<li><a href="/<%= b.url %>/">/<%= b.url %>/&nbsp;<%= b.name %>&nbsp;<span class="label label-danger">nsfw</span></a></li>
+	<li class="<%= classes %>"><a href="/<%= b.url %>/">/<%= b.url %>/&nbsp;<%= b.name %>&nbsp;<span class="label label-danger">nsfw</span></a></li>
 	<% end %>
 	<% end %>
 </ul>

@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
 	belongs_to :board
 	has_many :posts, dependent: :destroy
+	validates :name, presence: true
 	accepts_nested_attributes_for :posts
 	def get_first_and_last(f=1,l=3)
 		p=self.posts.first;

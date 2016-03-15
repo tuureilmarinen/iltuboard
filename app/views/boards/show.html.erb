@@ -11,7 +11,7 @@
 <hr/>
 <%= render 'application/new_topic_template' %>
 <hr/>
-<%= @board.topics.size %> threads
+<%= @board.topics.size-1 %> threads
 <hr/>
 <% @board.topics.each do |t| %>
   <% @t=t %>

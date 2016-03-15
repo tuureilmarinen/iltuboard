@@ -1,4 +1,5 @@
 setenv.sh
+setenv.bat
 log/development.log
 tmp/
 public/uploads/
