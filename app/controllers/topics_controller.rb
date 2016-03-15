@@ -50,12 +50,15 @@
   @topic = Topic.new(topic_params)
   #@post = Post.new(post_params)
   #@post = @topic.posts.new(post_params)
-  @post.user = current_user
+  #@topic.save
+  #@post.user = current_user
+  #@post.topic=@topic
+  byebug
   respond_to do |format|
-    if @post.save
-      format.html { redirect_to @post.url, notice: 'Thread was successfully created.' }
+    if @topic.save
+      format.html { redirect_to @topic.url, notice: 'Thread was successfully created.' }
       #format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      format.json { render :show, status: :created, location: @post }
+      format.json { render :show, status: :created, location: @topic }
     else
       format.html { render :new }
       format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -95,7 +98,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :board_id, :url)
+      params.require(:topic).permit(:name, :board_id, :url, posts_attributes:[:content, :show_name, :author, :attachment])
     end
     def post_params
       params.require(:post).permit(:topic_id, :content, :user_id, :show_name, :author, :attachment)
