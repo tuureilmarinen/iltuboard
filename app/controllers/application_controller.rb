@@ -15,5 +15,10 @@ class ApplicationController < ActionController::Base
   	@visible_boards = Board.where(visible:true)
   end
   helper_method :visible_boards
+  
+  def current_url(overwrite={})
+    url_for :only_path => false, :params => params.merge(overwrite)
+  end
+  helper_method :current_url
 end
 

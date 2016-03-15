@@ -1,7 +1,4 @@
 <h2><%= @topic.board.name %> : <%= @topic.name %></h2>
-
-<%= render 'application/new_topic_reply_template' %>
-<hr/>
 <% @topic.posts.each do |i| %>
 	<% @p = i %>
 	<% if @p.valid? %>
@@ -10,6 +7,5 @@
   	<%#nilclass%>
   	<% end %>
 <% end %>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<hr/>
+<%= render 'application/new_topic_reply_template' %>

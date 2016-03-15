@@ -11,14 +11,11 @@
 <hr/>
 <%= render 'application/new_topic_template' %>
 <hr/>
-<%# byebug %>
 <%= @board.topics.size %> threads
 <hr/>
 <% @board.topics.each do |t| %>
   <% @t=t %>
   <% if @t.op.valid? %>
-  	<%# byebug %>
   	<%= render 'application/topic_template' %>
   <% end %>
 <% end %>
-#
