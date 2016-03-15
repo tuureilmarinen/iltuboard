@@ -22,12 +22,8 @@
 	</div>
 	<div class="panel-body">
 		<% if @p.attachment? %>
-		<div class="post_attachment">
-			<%= link_to @p.attachment.url do %>
-  				<img src="<%= @p.attachment.thumb %>"></img>
-  				<p>(<%= @p.attachment.file.content_type %>)</p>
-			<% end %>
-		</div>
+			<% @attachment=@p.attachment %>
+			<%= render 'attachment_template' %>
 		<% end %>
 		<%= @p.content %>
 	</div>

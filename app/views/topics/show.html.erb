@@ -4,7 +4,11 @@
 <hr/>
 <% @topic.posts.each do |i| %>
 	<% @p = i %>
-  <%= render 'application/post_template' %>
+	<% if @p.valid? %>
+  	<%= render 'application/post_template' %>
+  	<% else %>
+  	<%#nilclass%>
+  	<% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |

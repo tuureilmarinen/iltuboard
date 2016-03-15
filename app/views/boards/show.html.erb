@@ -16,6 +16,9 @@
 <hr/>
 <% @board.topics.each do |t| %>
   <% @t=t %>
-  <%= render 'application/topic_template' %>
+  <% if @t.op.valid? %>
+  	<%# byebug %>
+  	<%= render 'application/topic_template' %>
+  <% end %>
 <% end %>
 #

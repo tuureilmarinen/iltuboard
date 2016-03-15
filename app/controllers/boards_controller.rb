@@ -16,7 +16,7 @@ class BoardsController < ApplicationController
     @board=Board.find_by_url(params[:url]) or raise ActiveRecord::RecordNotFound, "Record not found."
     @new_topic= @board.topics.new
     #@new_topic.board=@board
-    @new_post=@new_topic.posts.new
+    #@new_post=@new_topic.posts.new
     @new_topic.posts.build
     #@new_topic.posts.first.build
     #@new_post=Post.new

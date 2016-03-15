@@ -1,4 +1,4 @@
-<% @op=@t.posts.first %>
+<% @op=@t.op %>
 <div class="panel panel-default" id="t<%= @t.id %>">
 	<div class="panel-heading">
 		<span style="font-size: 1.5em"><%= @t.board.url %>&nbsp;&frasl;&nbsp;</span><strong style="font-size: 1.5em;"><%= link_to @t.name, "/"+@t.board.url+"/"+@t.id.to_s %></strong>
@@ -27,6 +27,10 @@
 		<%= link_to "",@t.board.url+"/"+@t.id.to_s+"/report", class:"glyphicon glyphicon-flag btn-danger btn-xs", style:"font-color:white;" %>
 	</div>
 	<div class="panel-body">
+		<% if @op.attachment? %>
+			<% @attachment=@op.attachment %>
+			<%= render 'attachment_template' %>
+		<% end %>
 		<%= @op.content %>
 		<hr/>
 		<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>

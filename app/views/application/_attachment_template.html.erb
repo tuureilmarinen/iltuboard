@@ -1,0 +1,6 @@
+		<div class="post_attachment">
+			<%= link_to @attachment.url do %>
+  				<img src="<%= @attachment.thumb %>"></img>
+  				<p>(<%= @attachment.file.content_type %>)</p>
+			<% end %>
+		</div>

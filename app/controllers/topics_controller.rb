@@ -48,11 +48,12 @@
   COMM
 
   @topic = Topic.new(topic_params)
-  #@post = Post.new(post_params)
+  byebug
+  @post = Post.new(topic_params["posts_attributes"]["0"])
   #@post = @topic.posts.new(post_params)
-  #@topic.save
-  #@post.user = current_user
-  #@post.topic=@topic
+  @topic.save
+  @post.user = current_user
+  @post.topic=@topic
   byebug
   respond_to do |format|
     if @topic.save
