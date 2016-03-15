@@ -12,7 +12,12 @@
   <header>
     <%= render 'layouts/navigation' %>
   </header>
-  <br>
+  <div class="row">
+    <%# they are rendered on top of each other when screen is small enough. they prevent topnav from being on the top of content %>
+    <div class="col-sm-3">&nbsp;</div>
+    <div class="col-sm-3">&nbsp;</div>
+    <div class="col-sm-3">&bsp;</div>
+  </div>
   <main role="main" style="background-color: white;">
     <div class="col-md-2">
       <%= render 'layouts/sidebar' %>
