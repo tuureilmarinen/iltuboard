@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     respond_to do |format|
       if @post.save
+        @post.topic.latest_post=@post
         format.html { redirect_to @post.url, notice: 'Post was successfully created.' }
         #format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }

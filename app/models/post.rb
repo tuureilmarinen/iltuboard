@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
 	def banned?
 		not self.ban.nil?
-	end§
+	end
 	def url
 		self.topic.url+"#"+self.id.to_s
 	end

@@ -8,10 +8,27 @@ class Topic < ActiveRecord::Base
 		p<<self.posts.last(n)
 		p
 	end
+
 	def url
 		"/"+self.board.url+"/"+self.id.to_s
 	end
+
 	def op
 		self.posts.first
+	end
+
+	def latest_post
+		unless self.latest_post_id.nil?
+			Post.find(self.latest_post_id)
+		else
+			nil
+		end
+	end
+
+	def latest_post=(post)
+		if post.class.name=="Post"
+			self.latest_post_id=post.id
+			self.save
+		end
 	end
 end

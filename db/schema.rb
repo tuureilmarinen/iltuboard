@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311235658) do
+ActiveRecord::Schema.define(version: 20160316070508) do
 
   create_table "bans", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(version: 20160311235658) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
-    t.integer  "board_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "board_id",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "latest_post_id"
   end
 
   create_table "users", force: :cascade do |t|

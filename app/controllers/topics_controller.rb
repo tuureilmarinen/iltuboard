@@ -48,10 +48,11 @@
   COMM
 
   @topic = Topic.new(topic_params)
-  @post = Post.new(topic_params["posts_attributes"]["0"])
+  @post=@topic.op
   @topic.save
   @post.user = current_user
   @post.topic=@topic
+  @topic.latest_post=@post
   respond_to do |format|
     if @topic.save
       format.html { redirect_to @topic.url, notice: 'Thread was successfully created.' }

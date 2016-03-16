@@ -6,6 +6,6 @@ class Board < ActiveRecord::Base
     	message: "%{value} is reserved." }
 
     def find_topics_sorted
-		Topic.find_by_sql ["select distinct * from (select topics.* from topics join posts on posts.topic_id=topics.id where topics.board_id=1 order by posts.created_at asc);",self.id]
+		Topic.find_by_sql ["select topics.* from topics left join posts on topics.latest_post_id=posts.id where topics.board_id=? order by posts.created_at desc;",self.id]
     end
 end
