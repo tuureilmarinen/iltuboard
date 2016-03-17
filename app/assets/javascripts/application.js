@@ -16,8 +16,13 @@
 //= require bootstrap-sprockets
 //= require_tree .
 $( document ).ready(function() {
+//$(document).on('pageinit', function() {
+//$(function(){
+//$(document).pageshow(function(event){
+//$(window).bind('load',function(){
 	//var user = currentUserName();
 	var nick="";
+	//alert("wollo");
 	$('#nickselect').on('change', function() {
   		//alert( this.value ); // or $(this).val()
   		var v = $(this).val();
@@ -54,3 +59,4 @@ $( document ).ready(function() {
 	//var user=CurrentUser();
 	//alert(user.name);
 });
+//}
