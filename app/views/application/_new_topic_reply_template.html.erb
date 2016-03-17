@@ -22,9 +22,13 @@
     <%= f.label :author, "nick", class:"col-sm-2 form-control-label"%>
     <div class="col-sm-10">
      <div class="col-sm-3" style="float:left;padding-left:0;">
-    <%= f.select :show_name, Post.show_names.keys,{},{class:"form-control"} %>
-    </div> <div class="col-sm-9" style="float:right;padding-right:0;">
-    <%= f.text_field :author,class:"form-control",placeholder:"nick" %>
+        <% if current_user %>
+           <%= f.select :show_name, options_for_select([['anonymous','anonymous'],['nick','nick'],['registered nick','registered'],['real name','real_name']]),{},{class:"form-control",id:"nickselect"} %>
+          <% else %>
+          <%= f.select :show_name, options_for_select([['anonymous','anonymous'],['nick','nick']]),{},{class:"form-control",id:"nickselect"} %>
+          <% end %>
+        </div> <div class="col-sm-9" style="float:right;padding-right:0;">
+    <%= f.text_field :author,class:"form-control",placeholder:"nick",id:"nickfield" %>
     </div>
   </div>
   <div class="form-group row">

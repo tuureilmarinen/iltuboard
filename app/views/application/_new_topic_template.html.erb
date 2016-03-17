@@ -30,10 +30,15 @@
       <%= field.label :author, "nick", class:"col-sm-2 form-control-label"%>
       <div class="col-sm-10">
         <div class="col-sm-3" style="float:left;padding-left:0;">
-          <%= field.select :show_name, Post.show_names.keys,{},{class:"form-control"} %>
+          <% if current_user %>
+           <%= field.select :show_name, options_for_select([['anonymous','anonymous'],['nick','nick'],['registered nick','registered'],['real name','real_name']]),{},{class:"form-control",id:"nickselect"} %>
+          <% else %>
+          <%= field.select :show_name, options_for_select([['anonymous','anonymous'],['nick','nick']]),{},{class:"form-control",id:"nickselect"} %>
+          <% end %>
+          <%# field.select :show_name, Post.show_names.keys,{},{class:"form-control",id:"nickselect"} %>
         </div>
         <div class="col-sm-9" style="float:right;padding-right:0;">
-          <%= field.text_field :author,class:"form-control",placeholder:"nick" %>
+          <%= field.text_field :author,class:"form-control",placeholder:"nick",id:"nickfield" %>
         </div>
       </div>
     </div>

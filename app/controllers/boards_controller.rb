@@ -10,8 +10,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @new_topic= @board.topics.new
-    @new_topic.posts.build
+    redirect_to "/"+@board.url
   end
 
   def show_by_url

@@ -33,4 +33,25 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :admin?
+
+  def is_user(u)
+    return false if current_user.nil?
+    if u.class.name=="User" and current_user.id==u.id
+      return current_user
+    elsif u.class.name=="Fixnum" and u==current_user.id
+      return current_user
+    else
+      return false
+    end
+  end
+  helper_method :is_user
+
+  def ensure_admin_or_user(u=nil)
+    if is_user(u) or admin?
+      return true
+    else
+      redirect_to root_url, alert: "You need to be admin or #{u.to_s}!"
+    end
+  end
+  helper_method :ensure_admin_or_user
 end

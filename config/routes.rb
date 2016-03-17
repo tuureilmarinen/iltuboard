@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'user/show'
+
+  get 'user/index'
+
   resources :bans
   resources :posts
   resources :topics
@@ -6,8 +14,14 @@ Rails.application.routes.draw do
   root to: 'hello#index'
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/users/:id', to: 'users#show'
+  get '/users', to: 'users#index'
+
+  #these must be at the end of the list
   get '/:url/:id', to: 'topics#show'
   get '/:url', to: 'boards#show_by_url'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

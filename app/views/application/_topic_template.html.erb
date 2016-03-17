@@ -24,7 +24,8 @@
 		<% unless @op.created_at==@op.updated_at %>
 		(last edited: <%= @op.updated_at.in_time_zone 'Helsinki' %>)
 		<% end %>
-		<%= link_to "",@t.board.url+"/"+@t.id.to_s+"/report", class:"glyphicon glyphicon-flag btn-danger btn-xs", style:"font-color:white;" %>
+		&nbsp;&nbsp;&nbsp;<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>
+		<%= link_to "",@t.board.url+"/"+@t.id.to_s+"/report", class:"glyphicon glyphicon-flag btn btn-default btn-xs", style:"font-color:white;float:right;" %>
 	</div>
 	<div class="panel-body">
 		<% if @op.attachment? %>
@@ -33,9 +34,6 @@
 		<% end %>
 		<%= @op.content %>
 		<hr/>
-		<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>
-		<br/>
-		<br/>
 		<% posts=@t.posts.last(3).to_a %>
 		<% posts.delete(posts.first) %>
 		<% posts.each do |p| %>

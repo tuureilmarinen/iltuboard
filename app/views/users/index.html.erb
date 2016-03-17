@@ -1,0 +1,28 @@
+<h1>List users</h1>
+<table class="table table-hover table-responsive">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>status</th>
+			<th>provider</th>
+			<th>url</th>
+			<th>posts (<%= Post.count %>)</th>
+			<th>created at</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @users.each do |u| %>
+		<tr>
+			<td><%= u.id %></td>
+			<td><%= u.name %></td>
+			<td><%= u.status %></td>
+			<td><%= u.provider %></td>
+			<td><%= link_to u.url, u.url %></td>
+			<td><%= u.posts.count %> (<%= ((u.posts.count/Post.count.to_f)*100).to_i %>%)</td>
+			<td><%= u.created_at %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+

@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
 		user.save!
 		user
 	end
+	def to_s
+		"#{self.name} (#{self.id})"
+	end
 end

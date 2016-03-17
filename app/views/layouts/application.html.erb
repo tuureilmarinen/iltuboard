@@ -3,12 +3,31 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Iltuboard" %>
-  <%= " - "+Rails.env unless Rails.env.production? %>
+    <%= " - "+Rails.env unless Rails.env.production? %>
   </title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Iltuboard" %>">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if current_user %>
+  <script type="text/javascript">
+    function currentUserName(){
+      return "<%= current_user.name %>";
+    }
+    function currentUserId(){
+      return <%= current_user.id %>;
+    }
+  </script>
+  <% else %>
+  <script type="text/javascript">
+    function currentUserName(){
+      return "";
+    }
+    function currentUserId(){
+      return 0;
+    }
+  </script>
+  <% end %>
 </head>
 <body>
   <header>
@@ -16,9 +35,9 @@
   </header>
   <div class="row">
     <%# they are rendered on top of each other when screen is small enough. they prevent topnav from being on the top of content %>
-    <div class="col-sm-2">&nbsp;</div>
-    <div class="col-sm-2">&nbsp;</div>
-    <div class="col-sm-2">&bsp;</div>
+    <div class="col-sm-3">&nbsp;</div>
+    <div class="col-sm-3">&nbsp;</div>
+    <div class="col-sm-3">&bsp;</div>
   </div>
   <main role="main" style="background-color: white;">
     <div class="col-md-2">

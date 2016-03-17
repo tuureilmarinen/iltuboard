@@ -29,6 +29,8 @@ class Topic < ActiveRecord::Base
 		if post.class.name=="Post"
 			self.latest_post_id=post.id
 			self.save
+		else
+			false
 		end
 	end
 end

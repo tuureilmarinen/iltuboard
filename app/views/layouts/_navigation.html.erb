@@ -17,11 +17,18 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li><%= link_to current_user.name, "/users/"+current_user.id.to_s %></li>
-        <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+          <li><%= link_to current_user.name, "/users/"+current_user.id.to_s %></li>
+          <% if current_user.admin? %>
+            <li><span class="label label-danger navbar-text white-text">admin</span></li>
+          <% elsif current_user.moderator? %>
+            <li><span class="label label-warning navbar-text white-text">mod</span></li>
+          <% else %>
+            <li><span class="label label-success navbar-text white-text">user</span></li>
+          <% end %>
+          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
         <% else %>
-        <li><p class="navbar-text">Authenticate with:</p></li>
-        <li><%= link_to 'Google', "/auth/google" %></li>
+          <li><p class="navbar-text">Authenticate with:</p></li>
+          <li><%= link_to 'Google', "/auth/google" %></li>
         <% end %>
       </ul>
     </div>
