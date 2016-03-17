@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-$( document ).ready(function() {
+//$( document ).ready(function() {
+function runme(){
 //$(document).on('pageinit', function() {
 //$(function(){
 //$(document).pageshow(function(event){
@@ -58,5 +59,5 @@ $( document ).ready(function() {
 	$('#nickselect').trigger("change"); //set values
 	//var user=CurrentUser();
 	//alert(user.name);
-});
-//}
+//});
+}
