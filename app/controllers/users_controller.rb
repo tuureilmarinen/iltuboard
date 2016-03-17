@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@replied_topics = Topic.find_by_sql ["select distinct topics.* from topics join posts on posts.topic_id=topics.id where posts.user_id=? order by posts.created_at",@user.id]
+		@replied_topics = Topic.find_by_sql ["select distinct topics.*, posts.created_at as post_order from topics join posts on posts.topic_id=topics.id where posts.user_id=? order by post_order",@user.id]
 		ensure_admin_or_user @user
 	end
 end
