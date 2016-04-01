@@ -35,7 +35,9 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
 
   def moderator?
-    if current_user.moderator? or current_user.admin?
+    if current_user.nil?
+      return false
+    elsif current_user.moderator? or current_user.admin?
       return true
     else
       return false
