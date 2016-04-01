@@ -34,6 +34,15 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin?
 
+  def moderator?
+    if current_user.moderator? or current_user.admin?
+      return true
+    else
+      return false
+    end
+  end
+  helper_method :moderator?
+
   def is_user(u)
     return false if current_user.nil?
     if u.class.name=="User" and current_user.id==u.id
@@ -50,7 +59,11 @@ class ApplicationController < ActionController::Base
     if is_user(u) or admin?
       return true
     else
-      redirect_to root_url, alert: "You need to be admin or #{u.to_s}!"
+      if u.nil?
+        redirect_to root_url, alert: "You need to be admin!"
+      else 
+        redirect_to root_url, alert: "You need to be admin or #{u.to_s}!"
+      end
     end
   end
   helper_method :ensure_admin_or_user
