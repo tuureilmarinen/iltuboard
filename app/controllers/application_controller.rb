@@ -54,4 +54,14 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :ensure_admin_or_user
+
+  def precentage (numerator,denominator)
+    if numerator==0 or denominator==0
+      #return Float::NAN
+      return 0
+    end
+    ((numerator/denominator.to_f)*100).to_i
+  end
+  helper_method :precentage
+
 end

@@ -9,6 +9,7 @@
 			<th>url</th>
 			<th>posts (<%= Post.count %>)</th>
 			<th>created at</th>
+			<th>action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,9 +19,18 @@
 			<td><%= u.name %></td>
 			<td><%= u.status %></td>
 			<td><%= u.provider %></td>
-			<td><%= link_to u.url, u.url %></td>
-			<td><%= u.posts.count %> (<%= ((u.posts.count/Post.count.to_f)*100).to_i %>%)</td>
+			<td><%= link_to u.url, u.url  unless u.url.nil? %></td>
+			<td><%= u.posts.count %> (<%= precentage(u.posts.count,Post.count) %>%)</td>
 			<td><%= u.created_at %></td>
+			<td>
+				<%= link_to "view","/users/"+u.id.to_s, class:"btn btn-xs btn-default"%>
+				<%= form_for(u, url: "/users/"+u.id.to_s+"/permissions", method: :post) do |f| %>
+					<%# f.button(type: 'submit', class: "btn btn-primary btn-xs") %>
+					<%= f.submit 'u', :class => 'btn btn-success btn-xs', :name => 'user', :title => "set permissions as USER" unless u.user? %>
+					<%= f.submit 'm', :class => 'btn btn-warning btn-xs', :name => 'moderator',:title => "set permissions as MODERATOR" unless u.moderator? %>
+					<%= f.submit 'a', :class => 'btn btn-danger btn-xs', :name => 'admin',:title => "set permissions as ADMIN" unless u.admin? %>
+				<% end unless u==current_user %>
+			</td>
 		</tr>
 	<% end %>
 	</tbody>

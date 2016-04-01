@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/users/:id', to: 'users#show'
+  post '/users/:id/permissions', to:'users#set_permissions'
   get '/users', to: 'users#index'
 
   #these must be at the end of the list
