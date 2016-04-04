@@ -43,3 +43,5 @@ exclude_paths:
 - db/
 - test/
 - vendor/
+- coverage/
+- doc/
