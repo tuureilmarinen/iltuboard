@@ -113,3 +113,997 @@ Migrating to DropPostAttachmentsTable (20160311235658)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-03-14 15:19:00.615414"], ["updated_at", "2016-03-14 15:19:00.615414"]]
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLatestPostIdToTopics (20160316070508)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "topics" ADD "latest_post_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160316070508"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddFirstPostIdToTopics (20160317114129)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "topics" ADD "first_post_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160317114129"]]
+  [1m[36m (15.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 11:47:15.494600"], ["updated_at", "2016-04-04 11:47:15.494600"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 11:47:15.514384"], ["updated_at", "2016-04-04 11:47:15.514384"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 11:47:15.519838"], ["updated_at", "2016-04-04 11:47:15.519838"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 11:47:15.526154"], ["updated_at", "2016-04-04 11:47:15.526154"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.1ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 11:47:15.532659"], ["updated_at", "2016-04-04 11:47:15.532659"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 11:47:15.537202"], ["updated_at", "2016-04-04 11:47:15.537202"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 11:47:15.540089"], ["updated_at", "2016-04-04 11:47:15.540089"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 11:47:15.544458"], ["updated_at", "2016-04-04 11:47:15.544458"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 11:47:15.551155"], ["updated_at", "2016-04-04 11:47:15.551155"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 11:47:15.553651"], ["updated_at", "2016-04-04 11:47:15.553651"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 11:47:15.555478"], ["updated_at", "2016-04-04 11:47:15.555478"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 11:47:15.558234"], ["updated_at", "2016-04-04 11:47:15.558234"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:02:48.245335"], ["updated_at", "2016-04-04 12:02:48.245335"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:02:48.262960"], ["updated_at", "2016-04-04 12:02:48.262960"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:02:48.269791"], ["updated_at", "2016-04-04 12:02:48.269791"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:02:48.276922"], ["updated_at", "2016-04-04 12:02:48.276922"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:02:48.280537"], ["updated_at", "2016-04-04 12:02:48.280537"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:02:48.283482"], ["updated_at", "2016-04-04 12:02:48.283482"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:02:48.285897"], ["updated_at", "2016-04-04 12:02:48.285897"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:02:48.288260"], ["updated_at", "2016-04-04 12:02:48.288260"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.1ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:02:48.296628"], ["updated_at", "2016-04-04 12:02:48.296628"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:02:48.300291"], ["updated_at", "2016-04-04 12:02:48.300291"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:02:48.302288"], ["updated_at", "2016-04-04 12:02:48.302288"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:02:48.304350"], ["updated_at", "2016-04-04 12:02:48.304350"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:02:48.307716"], ["updated_at", "2016-04-04 12:02:48.307716"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:02:48.309763"], ["updated_at", "2016-04-04 12:02:48.309763"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:02:48.311462"], ["updated_at", "2016-04-04 12:02:48.311462"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:02:48.314525"], ["updated_at", "2016-04-04 12:02:48.314525"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.0ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:15.780553"], ["updated_at", "2016-04-04 12:03:15.780553"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:15.797448"], ["updated_at", "2016-04-04 12:03:15.797448"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:15.804717"], ["updated_at", "2016-04-04 12:03:15.804717"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:15.811311"], ["updated_at", "2016-04-04 12:03:15.811311"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:15.814916"], ["updated_at", "2016-04-04 12:03:15.814916"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:15.816978"], ["updated_at", "2016-04-04 12:03:15.816978"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:15.818600"], ["updated_at", "2016-04-04 12:03:15.818600"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:15.820730"], ["updated_at", "2016-04-04 12:03:15.820730"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.1ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:15.827816"], ["updated_at", "2016-04-04 12:03:15.827816"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:15.832067"], ["updated_at", "2016-04-04 12:03:15.832067"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:15.834062"], ["updated_at", "2016-04-04 12:03:15.834062"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:15.836080"], ["updated_at", "2016-04-04 12:03:15.836080"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:15.839607"], ["updated_at", "2016-04-04 12:03:15.839607"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:15.842672"], ["updated_at", "2016-04-04 12:03:15.842672"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:15.844855"], ["updated_at", "2016-04-04 12:03:15.844855"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:15.847265"], ["updated_at", "2016-04-04 12:03:15.847265"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.0ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:36.133290"], ["updated_at", "2016-04-04 12:03:36.133290"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:36.151207"], ["updated_at", "2016-04-04 12:03:36.151207"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:36.157607"], ["updated_at", "2016-04-04 12:03:36.157607"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:36.168373"], ["updated_at", "2016-04-04 12:03:36.168373"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:36.172006"], ["updated_at", "2016-04-04 12:03:36.172006"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:36.175091"], ["updated_at", "2016-04-04 12:03:36.175091"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:36.177675"], ["updated_at", "2016-04-04 12:03:36.177675"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:36.180392"], ["updated_at", "2016-04-04 12:03:36.180392"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.1ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:36.188492"], ["updated_at", "2016-04-04 12:03:36.188492"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:36.190819"], ["updated_at", "2016-04-04 12:03:36.190819"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:36.192567"], ["updated_at", "2016-04-04 12:03:36.192567"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:36.194508"], ["updated_at", "2016-04-04 12:03:36.194508"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:36.198453"], ["updated_at", "2016-04-04 12:03:36.198453"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:36.202917"], ["updated_at", "2016-04-04 12:03:36.202917"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:36.205393"], ["updated_at", "2016-04-04 12:03:36.205393"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:36.207805"], ["updated_at", "2016-04-04 12:03:36.207805"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:36.212071"], ["updated_at", "2016-04-04 12:03:36.212071"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:36.214219"], ["updated_at", "2016-04-04 12:03:36.214219"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:36.215834"], ["updated_at", "2016-04-04 12:03:36.215834"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:36.217665"], ["updated_at", "2016-04-04 12:03:36.217665"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.0ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:48.502023"], ["updated_at", "2016-04-04 12:03:48.502023"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:48.519609"], ["updated_at", "2016-04-04 12:03:48.519609"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:48.525501"], ["updated_at", "2016-04-04 12:03:48.525501"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:48.531793"], ["updated_at", "2016-04-04 12:03:48.531793"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:48.536245"], ["updated_at", "2016-04-04 12:03:48.536245"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:48.539272"], ["updated_at", "2016-04-04 12:03:48.539272"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:48.541624"], ["updated_at", "2016-04-04 12:03:48.541624"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:48.544408"], ["updated_at", "2016-04-04 12:03:48.544408"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.2ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:48.554880"], ["updated_at", "2016-04-04 12:03:48.554880"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:48.558254"], ["updated_at", "2016-04-04 12:03:48.558254"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:48.561090"], ["updated_at", "2016-04-04 12:03:48.561090"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:48.564661"], ["updated_at", "2016-04-04 12:03:48.564661"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:48.572136"], ["updated_at", "2016-04-04 12:03:48.572136"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:48.575545"], ["updated_at", "2016-04-04 12:03:48.575545"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:48.577929"], ["updated_at", "2016-04-04 12:03:48.577929"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:48.580591"], ["updated_at", "2016-04-04 12:03:48.580591"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:03:48.587686"], ["updated_at", "2016-04-04 12:03:48.587686"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:03:48.590658"], ["updated_at", "2016-04-04 12:03:48.590658"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:03:48.592936"], ["updated_at", "2016-04-04 12:03:48.592936"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:03:48.596327"], ["updated_at", "2016-04-04 12:03:48.596327"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:06:44.393964"], ["updated_at", "2016-04-04 12:06:44.393964"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:06:44.411077"], ["updated_at", "2016-04-04 12:06:44.411077"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:06:44.418486"], ["updated_at", "2016-04-04 12:06:44.418486"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:06:44.425992"], ["updated_at", "2016-04-04 12:06:44.425992"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:06:44.429870"], ["updated_at", "2016-04-04 12:06:44.429870"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:06:44.432671"], ["updated_at", "2016-04-04 12:06:44.432671"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:06:44.434713"], ["updated_at", "2016-04-04 12:06:44.434713"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:06:44.440859"], ["updated_at", "2016-04-04 12:06:44.440859"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBoard Load (0.1ms)[0m  [1mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:06:44.447226"], ["updated_at", "2016-04-04 12:06:44.447226"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:06:44.449269"], ["updated_at", "2016-04-04 12:06:44.449269"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:06:44.450870"], ["updated_at", "2016-04-04 12:06:44.450870"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:06:44.452931"], ["updated_at", "2016-04-04 12:06:44.452931"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:06:44.457108"], ["updated_at", "2016-04-04 12:06:44.457108"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:06:44.459339"], ["updated_at", "2016-04-04 12:06:44.459339"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:06:44.463859"], ["updated_at", "2016-04-04 12:06:44.463859"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:06:44.469278"], ["updated_at", "2016-04-04 12:06:44.469278"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:06:44.474502"], ["updated_at", "2016-04-04 12:06:44.474502"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:06:44.476613"], ["updated_at", "2016-04-04 12:06:44.476613"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:06:44.478661"], ["updated_at", "2016-04-04 12:06:44.478661"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:06:44.480596"], ["updated_at", "2016-04-04 12:06:44.480596"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.0ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["topic_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:12:51.816619"], ["updated_at", "2016-04-04 12:12:51.816619"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:12:51.836107"], ["updated_at", "2016-04-04 12:12:51.836107"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:12:51.844295"], ["updated_at", "2016-04-04 12:12:51.844295"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:12:51.859536"], ["updated_at", "2016-04-04 12:12:51.859536"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:12:51.863590"], ["updated_at", "2016-04-04 12:12:51.863590"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:12:51.865965"], ["updated_at", "2016-04-04 12:12:51.865965"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:12:51.867972"], ["updated_at", "2016-04-04 12:12:51.867972"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:12:51.870350"], ["updated_at", "2016-04-04 12:12:51.870350"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.1ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:12:51.878449"], ["updated_at", "2016-04-04 12:12:51.878449"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:12:51.881575"], ["updated_at", "2016-04-04 12:12:51.881575"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:12:51.884788"], ["updated_at", "2016-04-04 12:12:51.884788"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:12:51.888021"], ["updated_at", "2016-04-04 12:12:51.888021"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:12:51.892981"], ["updated_at", "2016-04-04 12:12:51.892981"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:12:51.895317"], ["updated_at", "2016-04-04 12:12:51.895317"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:12:51.898031"], ["updated_at", "2016-04-04 12:12:51.898031"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:12:51.901354"], ["updated_at", "2016-04-04 12:12:51.901354"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.3ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:12:51.909636"], ["updated_at", "2016-04-04 12:12:51.909636"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:12:51.912720"], ["updated_at", "2016-04-04 12:12:51.912720"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:12:51.915088"], ["updated_at", "2016-04-04 12:12:51.915088"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:12:51.917009"], ["updated_at", "2016-04-04 12:12:51.917009"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.0ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["topic_id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.3ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.556651"], ["updated_at", "2016-04-04 12:15:00.556651"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.573197"], ["updated_at", "2016-04-04 12:15:00.573197"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.580894"], ["updated_at", "2016-04-04 12:15:00.580894"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.594510"], ["updated_at", "2016-04-04 12:15:00.594510"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.598041"], ["updated_at", "2016-04-04 12:15:00.598041"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.600460"], ["updated_at", "2016-04-04 12:15:00.600460"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.603173"], ["updated_at", "2016-04-04 12:15:00.603173"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.605606"], ["updated_at", "2016-04-04 12:15:00.605606"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.1ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.2ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.615304"], ["updated_at", "2016-04-04 12:15:00.615304"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.618239"], ["updated_at", "2016-04-04 12:15:00.618239"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.621037"], ["updated_at", "2016-04-04 12:15:00.621037"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.623856"], ["updated_at", "2016-04-04 12:15:00.623856"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.628472"], ["updated_at", "2016-04-04 12:15:00.628472"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.631436"], ["updated_at", "2016-04-04 12:15:00.631436"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.633699"], ["updated_at", "2016-04-04 12:15:00.633699"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.635774"], ["updated_at", "2016-04-04 12:15:00.635774"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.642533"], ["updated_at", "2016-04-04 12:15:00.642533"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.645051"], ["updated_at", "2016-04-04 12:15:00.645051"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.647440"], ["updated_at", "2016-04-04 12:15:00.647440"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.649327"], ["updated_at", "2016-04-04 12:15:00.649327"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.0ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["topic_id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.654289"], ["updated_at", "2016-04-04 12:15:00.654289"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.656309"], ["updated_at", "2016-04-04 12:15:00.656309"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.657955"], ["updated_at", "2016-04-04 12:15:00.657955"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.659765"], ["updated_at", "2016-04-04 12:15:00.659765"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:00.678455"], ["updated_at", "2016-04-04 12:15:00.678455"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:00.680875"], ["updated_at", "2016-04-04 12:15:00.680875"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:00.682940"], ["updated_at", "2016-04-04 12:15:00.682940"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:00.684947"], ["updated_at", "2016-04-04 12:15:00.684947"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.2ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.528876"], ["updated_at", "2016-04-04 12:15:17.528876"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.544900"], ["updated_at", "2016-04-04 12:15:17.544900"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.552938"], ["updated_at", "2016-04-04 12:15:17.552938"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:17.566814"], ["updated_at", "2016-04-04 12:15:17.566814"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.570297"], ["updated_at", "2016-04-04 12:15:17.570297"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.572442"], ["updated_at", "2016-04-04 12:15:17.572442"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.575563"], ["updated_at", "2016-04-04 12:15:17.575563"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:17.577917"], ["updated_at", "2016-04-04 12:15:17.577917"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.1ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.585958"], ["updated_at", "2016-04-04 12:15:17.585958"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.588415"], ["updated_at", "2016-04-04 12:15:17.588415"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.590215"], ["updated_at", "2016-04-04 12:15:17.590215"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:17.592457"], ["updated_at", "2016-04-04 12:15:17.592457"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.596833"], ["updated_at", "2016-04-04 12:15:17.596833"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.598831"], ["updated_at", "2016-04-04 12:15:17.598831"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.600647"], ["updated_at", "2016-04-04 12:15:17.600647"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:17.602589"], ["updated_at", "2016-04-04 12:15:17.602589"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.609824"], ["updated_at", "2016-04-04 12:15:17.609824"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.612969"], ["updated_at", "2016-04-04 12:15:17.612969"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.615690"], ["updated_at", "2016-04-04 12:15:17.615690"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:15:17.618312"], ["updated_at", "2016-04-04 12:15:17.618312"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["topic_id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.623183"], ["updated_at", "2016-04-04 12:15:17.623183"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.625342"], ["updated_at", "2016-04-04 12:15:17.625342"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.626955"], ["updated_at", "2016-04-04 12:15:17.626955"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:15:17.636657"], ["updated_at", "2016-04-04 12:15:17.636657"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:15:17.639081"], ["updated_at", "2016-04-04 12:15:17.639081"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:15:17.641001"], ["updated_at", "2016-04-04 12:15:17.641001"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.561712"], ["updated_at", "2016-04-04 12:23:31.561712"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.577006"], ["updated_at", "2016-04-04 12:23:31.577006"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.584449"], ["updated_at", "2016-04-04 12:23:31.584449"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:23:31.599867"], ["updated_at", "2016-04-04 12:23:31.599867"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.604000"], ["updated_at", "2016-04-04 12:23:31.604000"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.607148"], ["updated_at", "2016-04-04 12:23:31.607148"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.609273"], ["updated_at", "2016-04-04 12:23:31.609273"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:23:31.611771"], ["updated_at", "2016-04-04 12:23:31.611771"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBoard Load (0.1ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.619641"], ["updated_at", "2016-04-04 12:23:31.619641"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.622000"], ["updated_at", "2016-04-04 12:23:31.622000"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.623737"], ["updated_at", "2016-04-04 12:23:31.623737"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:23:31.625620"], ["updated_at", "2016-04-04 12:23:31.625620"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.2ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.629787"], ["updated_at", "2016-04-04 12:23:31.629787"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.631785"], ["updated_at", "2016-04-04 12:23:31.631785"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.633972"], ["updated_at", "2016-04-04 12:23:31.633972"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:23:31.636952"], ["updated_at", "2016-04-04 12:23:31.636952"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBoard Exists (0.1ms)[0m  SELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.643383"], ["updated_at", "2016-04-04 12:23:31.643383"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.645893"], ["updated_at", "2016-04-04 12:23:31.645893"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.648673"], ["updated_at", "2016-04-04 12:23:31.648673"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "user_id", "show_name", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "postbullshit"], ["user_id", 1], ["show_name", 3], ["topic_id", 1], ["created_at", "2016-04-04 12:23:31.650572"], ["updated_at", "2016-04-04 12:23:31.650572"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTopic Load (0.0ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["topic_id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.655572"], ["updated_at", "2016-04-04 12:23:31.655572"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.657735"], ["updated_at", "2016-04-04 12:23:31.657735"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.659359"], ["updated_at", "2016-04-04 12:23:31.659359"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBoard Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "boards" WHERE LOWER("boards"."url") = LOWER('wololoo') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "boards" ("url", "name", "description", "visible", "nsfw", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["url", "wololoo"], ["name", "ayoho"], ["description", "blue to red"], ["visible", "t"], ["nsfw", "t"], ["created_at", "2016-04-04 12:23:31.668299"], ["updated_at", "2016-04-04 12:23:31.668299"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "board_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "alluhu"], ["board_id", 1], ["created_at", "2016-04-04 12:23:31.670783"], ["updated_at", "2016-04-04 12:23:31.670783"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["provider", "google"], ["uid", "havukalle"], ["name", "Hermanni"], ["url", "ayoho"], ["created_at", "2016-04-04 12:23:31.673173"], ["updated_at", "2016-04-04 12:23:31.673173"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m

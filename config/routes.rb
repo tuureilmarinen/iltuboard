@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'user/index'
 
+
   resources :bans
   resources :posts
   resources :topics
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
 
   #these must be at the end of the list
+  post ':url', to: 'topics#create'
   get '/:url/:id', to: 'topics#show'
   get '/:url', to: 'boards#show_by_url'
 

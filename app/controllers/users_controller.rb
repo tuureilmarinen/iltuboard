@@ -20,9 +20,6 @@ class UsersController < ApplicationController
 			user.user!
 		end
 		redirect_to "/users/"
-
-
-
 	end
 	def user_params
 		params.require(:post).permit(:id,:status)

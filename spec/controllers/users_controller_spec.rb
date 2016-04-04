@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+__END__
 RSpec.describe UsersController, type: :controller do
 
   describe "GET #index" do
