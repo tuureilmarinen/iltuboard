@@ -28,6 +28,11 @@ RSpec.describe Post, type: :model do
 			expect(p.topic).to eq t
 			expect(t.posts.first).to eq p
 		end
+		it "contains the information it should" do
+			expect(p.content).to eq "postbullshit"
+			expect(p.user).to eq u
+			expect(p.show_name).to eq "real_name"
+		end
 
 	end
 	context "with invalid content" do
@@ -44,4 +49,5 @@ RSpec.describe Post, type: :model do
 			expect(Post.count).to eq(0)
 		end
 	end
+	context "with "
 end

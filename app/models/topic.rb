@@ -4,9 +4,8 @@ class Topic < ActiveRecord::Base
 	validates :name, presence: true
 	accepts_nested_attributes_for :posts
 	def get_first_and_last(f=1,l=3)
-		p=self.posts.first;
-		p<<self.posts.last(n)
-		p
+		p=self.posts.first(f)
+		p+self.posts.last(l)
 	end
 
 	def url
@@ -29,8 +28,6 @@ class Topic < ActiveRecord::Base
 		if post.class.name=="Post"
 			self.latest_post_id=post.id
 			self.save
-		else
-			false
 		end
 	end
 end

@@ -37,33 +37,34 @@
   def create
     <<-COMM
     respond_to do |format|
-    if @topic.save
-      format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-      format.json { render :show, status: :created, location: @topic }
-    else
-      format.html { render :new }
-      format.json { render json: @topic.errors, status: :unprocessable_entity }
+      if @topic.save
+        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render :new }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
     end
-  end
-  COMM
+    COMM
 
-  @topic = Topic.new(topic_params)
-  @post=@topic.op
-  @topic.save
-  @post.user = current_user
-  @post.topic=@topic
-  @topic.latest_post=@post
-  respond_to do |format|
-    if @topic.save
-      format.html { redirect_to @topic.url, notice: 'Thread was successfully created.' }
-      #format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      format.json { render :show, status: :created, location: @topic }
-    else
-      format.html { render :new }
-      format.json { render json: @post.errors, status: :unprocessable_entity }
+    @topic = Topic.new(topic_params)
+    @post=@topic.op
+    @topic.save
+    @post.user = current_user
+    @post.topic=@topic
+    @topic.latest_post=@post
+    respond_to do |format|
+      if @topic.save
+        #format.html { redirect_to @topic.url, notice: 'Thread was successfully created.' }
+        format.html { redirect_to @topic, notice: 'Thread was successfully created.' }
+        #format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
 
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
@@ -102,4 +103,4 @@ end
     def post_params
       params.require(:post).permit(:topic_id, :content, :user_id, :show_name, :author, :attachment)
     end
-  end
+end

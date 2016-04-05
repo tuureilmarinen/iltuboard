@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	has_many :posts
 	# User is created or retrived from database and is set as an administrator if he is the first registreted user 
 	def self.from_omniauth(auth_hash)
+		#byebug
 		#user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'], name: auth_hash['info']['name'])
 		user = find_by provider: auth_hash['provider'], uid: auth_hash['uid']
 		if user.nil? #user does not exsist
