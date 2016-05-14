@@ -13,3 +13,5 @@
 http://yuml.me/edit/ca39b3aa
 
 Projektin tarkoituksena on luona 4chanin kaltainen keskustelufoorumi. (ns. imageboard). Ylläpitoa, tai mitään muutakaan varten ei luotu erityistä kirjautumis/käyttäjänhallinta systeemiä, vaan kirjautuminen toteutettiin Googlen Oauth2 rajapintaa käyttäen.
+
+Ensimmäisestä käyttäjästä joka kirjautuu sovellukseen tehdään ylläpitäjä automaattisesti. Hän voi sitten luoda uusia alueita ja muokata muiden käyttäjien oikeuksia. Jotta ylläpitäjä voi muokata käyttäjän oikeuksia, tulee hänen käyttää sovellusta ainakin kerran.

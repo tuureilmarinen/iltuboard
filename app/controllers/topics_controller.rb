@@ -53,18 +53,20 @@
     @post.user = current_user
     @post.topic=@topic
     @topic.latest_post=@post
-    respond_to do |format|
-      if @topic.save
+    if @topic.save
+      url="/"+@topic.board.url+"/"+@topic.id.to_s
         #format.html { redirect_to @topic.url, notice: 'Thread was successfully created.' }
-        format.html { redirect_to @topic, notice: 'Thread was successfully created.' }
+        #format.html { redirect_to @topic, notice: 'Thread was successfully created.' }
+        format.html { redirect_to url, notice: 'Thread was successfully created.' }
         #format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        flash[:warning] = @post.errors
+        redirect_to "/"+@post.board.url, notice: 'The topic cannot be empty.'
+        #format.html { render :new }
+        #format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
@@ -103,4 +105,4 @@
     def post_params
       params.require(:post).permit(:topic_id, :content, :user_id, :show_name, :author, :attachment)
     end
-end
+  end
