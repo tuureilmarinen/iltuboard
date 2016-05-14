@@ -1,1 +1,5 @@
 <%# add navigation links to this file %>
+<% if moderator? # or admin %>
+<li><a href="/boards">manage boards</a></li>
+<li><%= link_to "users","/users/"%></li>
+<% end %>

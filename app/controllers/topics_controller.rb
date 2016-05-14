@@ -4,7 +4,7 @@
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.all_sorted
   end
 
   # GET /topics/1

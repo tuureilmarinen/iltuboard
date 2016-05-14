@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :topics
   resources :boards
-  root to: 'hello#index'
+  #root to: 'hello#index'
+  root to: 'topics#index'
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
@@ -20,8 +21,10 @@ Rails.application.routes.draw do
   post '/users/:id/permissions', to:'users#set_permissions'
   get '/users', to: 'users#index'
 
+
   #these must be at the end of the list
   post ':url', to: 'topics#create'
+  get '/:url/:id/:name', to: 'topics#show'
   get '/:url/:id', to: 'topics#show'
   get '/:url', to: 'boards#show_by_url'
 

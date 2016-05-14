@@ -30,4 +30,9 @@ class Topic < ActiveRecord::Base
 			self.save
 		end
 	end
+	def self.all_sorted
+		Topic.find_by_sql ["select topics.* from topics
+			left join posts on topics.latest_post_id=posts.id
+			order by posts.created_at desc;"]
+	end
 end

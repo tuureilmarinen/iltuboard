@@ -1,24 +1,6 @@
-<ul class="nav nav-pills nav-stacked">
-	<li class="active"><a href="#">Hi there</a></li>
-	<li><a href="#">Sidenav...</a></li>
-	<li><a href="#">Yes</a></li>
-	<li><a href="#">This is it</a></li>
-</ul>
-<ul class="nav nav-sidebar">
-	<li><a href="/topics">Topics</a></li>
-	<li><a href="/posts">Posts</a></li>
-</ul>
-<% if moderator? # or admin %>
-<ul class="nav nav-pills nav-stacked">
-	<li class="nav-divider"></li>
-	<li><a href="/boards">manage boards</a></li>
-	<li><%= link_to "users","/users/"%></li>
-</ul>
-<% end %>
 <% unless visible_boards.empty? %>
 <% active_board=(not @board.nil?) ? @board.id : nil -%>
 <ul class="nav nav-pills nav-stacked">
-	<li class="nav-divider"></li>
 	<% visible_boards.each do |b| %>
 	<% classes=""
 		if b.id==active_board

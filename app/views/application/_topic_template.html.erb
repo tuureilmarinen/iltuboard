@@ -25,7 +25,6 @@
 		(last edited: <%= @op.updated_at.in_time_zone 'Helsinki' %>)
 		<% end %>
 		&nbsp;&nbsp;&nbsp;<%= @t.posts.size-1 %> <%= "reply".pluralize(@t.posts.size-1) %>
-		<%= link_to "",@t.board.url+"/"+@t.id.to_s+"/report", class:"glyphicon glyphicon-flag btn btn-default btn-xs", style:"font-color:white;float:right;" %>
 	</div>
 	<div class="panel-body">
 		<% if @op.attachment? %>
