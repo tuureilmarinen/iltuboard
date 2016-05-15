@@ -40,7 +40,7 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
@@ -156,6 +156,11 @@
         2,
         null,
         null,
+        1,
+        0,
+        null,
+        null,
+        null,
         null
       ],
       "/home/iltu/Documents/iltuboard/app/models/user.rb": [
@@ -263,10 +268,6 @@
         0
       ],
       "/home/iltu/Documents/iltuboard/app/controllers/posts_controller.rb": [
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -450,6 +451,7 @@
         0,
         0,
         0,
+        0,
         0
       ],
       "/home/iltu/Documents/iltuboard/app/controllers/topics_controller.rb": [
@@ -548,19 +550,13 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0
       ],
       "/home/iltu/Documents/iltuboard/app/controllers/sessions_controller.rb": [
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -679,6 +675,6 @@
         0
       ]
     },
-    "timestamp": 1459849116
+    "timestamp": 1463345328
   }
 }
